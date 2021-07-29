@@ -9,9 +9,17 @@ app.use(function (req, res, next) {
   const time = new Date()
   const timeString = timeHelpers.formatTime(time)
   // const timeString = time.toString()
+  const requestTimeStamp = time.getTime()
   const type = req.method
   const url = req.originalUrl
-  console.log(`${timeString} | ${type} from ${url}`)
+
+  // 收到response
+  res.on('finish', () => {
+    const responseTimeStamp = new Date().getTime()
+    const useTimeStamp = responseTimeStamp - requestTimeStamp
+    console.log(`${timeString} | ${type} from ${url} | total time: ${useTimeStamp} ms`)
+  })
+
   next()
 })
 
