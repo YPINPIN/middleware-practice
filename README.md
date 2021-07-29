@@ -8,6 +8,7 @@ AlphaCamp Project : middleware-practice
   - 時間戳記 (time-stamps) - 以當地時間 (台北) 顯示
   - 請求的 HTTP 方法
   - URL
+  - 伺服器回應的時間長度，如 8ms
 
 ## 環境建置
 
